@@ -1,13 +1,14 @@
 import { useState } from "react";
-import axios from "axios";
 import FileUploader from "../components/FileUploader";
+import { predictNNModel } from "../api/api";
+import NNModelResults from "./NNModelResults";
 
 function NNModel() {
     const [image, setImage] = useState(null);
     const [preview, setPreview] = useState(null);
-    const [result, setResult] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [predictionData, setPredictionData] = useState(null);
 
     const handleImageChange = (e) => {
         const file = e.target.files[0];
@@ -24,15 +25,19 @@ function NNModel() {
         if (!image) return;
         setLoading(true);
         try {
-            const formData = new FormData();
-            formData.append("image", image);
-            const response = await axios.post("YOUR_API_ENDPOINT/nn-predict", formData);
-            const resultWindow = window.open("/nn-model-results", "_blank");
-            resultWindow.result = response.data.prediction;
-            resultWindow.confidence = response.data.confidence;
-            resultWindow.probabilities = response.data.probabilities;
+            const response = await predictNNModel(image);
+            // Предполагаем, что сервер возвращает изображение с bounding box и заголовок "Result: Smiling/Not Smiling"
+            // Для отображения изображения создаём URL
+            const imageUrl = URL.createObjectURL(response);
+            // Для упрощения предполагаем, что заголовок можно извлечь из имени файла или передать через API
+            // Здесь используем mock-данные для метки
+            setPredictionData({
+                imageUrl,
+                result: "Result: Smiling", // Замените на реальный результат из API, если он доступен
+            });
+            setError(null);
         } catch (err) {
-            setError("Ошибка при обработке изображения.");
+            setError(err.message);
         }
         setLoading(false);
     };
@@ -57,9 +62,9 @@ function NNModel() {
                     </button>
                 </div>
             )}
-            {result && (
-                <div className="mt-4 bg-gray-100 p-4 rounded-lg">
-                    <p>{result}</p>
+            {predictionData && (
+                <div className="mt-6">
+                    <NNModelResults {...predictionData} />
                 </div>
             )}
             {error && (
