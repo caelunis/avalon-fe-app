@@ -25,7 +25,7 @@ function SupervisedResultsClassifier({ data }) {
         for (const [key, value] of Object.entries(modelData)) {
             if (key !== "cv_results") {
                 metrics.push(
-                    <p key={`${modelName}-${key}`} className="text-lg">
+                    <p key={`${modelName}-${key}`} className="text-white">
                         {key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}: {value.toFixed(4)}
                     </p>
                 );
@@ -35,7 +35,7 @@ function SupervisedResultsClassifier({ data }) {
             for (const [key, value] of Object.entries(modelData.cv_results)) {
                 if (!Array.isArray(value)) {
                     metrics.push(
-                        <p key={`${modelName}-${key}`} className="text-lg">
+                        <p key={`${modelName}-${key}`} className="text-white">
                             {key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}: {value}
                         </p>
                     );
@@ -64,7 +64,7 @@ function SupervisedResultsClassifier({ data }) {
 
         return (
             <div className="mt-4 max-w-md mx-auto">
-                <h3 className="text-lg font-semibold mb-2">{modelName.toUpperCase()} - Accuracy (Cross-Validation)</h3>
+                <h3 className="text-white font-semibold mb-2">{modelName.toUpperCase()} - Accuracy (Cross-Validation)</h3>
                 <Line
                     key={`${modelName}-accuracy-chart`} // Уникальный ключ для каждого графика
                     data={graphData}

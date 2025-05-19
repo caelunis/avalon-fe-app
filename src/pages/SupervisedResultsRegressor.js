@@ -12,7 +12,7 @@ function SupervisedResultsRegressor({ data }) {
         for (const [key, value] of Object.entries(modelData)) {
             if (key !== "cv_results") {
                 metrics.push(
-                    <p key={`${modelName}-${key}`} className="text-lg">
+                    <p key={`${modelName}-${key}`} className="text-white">
                         {key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}: {value.toFixed(4)}
                     </p>
                 );
@@ -22,7 +22,7 @@ function SupervisedResultsRegressor({ data }) {
             for (const [key, value] of Object.entries(modelData.cv_results)) {
                 if (!Array.isArray(value)) {
                     metrics.push(
-                        <p key={`${modelName}-${key}`} className="text-lg">
+                        <p key={`${modelName}-${key}`} className="text-white">
                             {key.charAt(0).toUpperCase() + key.slice(1).replace('_', ' ')}: {value}
                         </p>
                     );
@@ -52,7 +52,7 @@ function SupervisedResultsRegressor({ data }) {
 
         return (
             <div className="mt-4 max-w-md mx-auto">
-                <h3 className="text-lg font-semibold mb-2">{modelName.toUpperCase()} - {resultsKey.replace('_results', '').toUpperCase()} (Cross-Validation)</h3>
+                <h3 className="text-white font-semibold mb-2">{modelName.toUpperCase()} - {resultsKey.replace('_results', '').toUpperCase()} (Cross-Validation)</h3>
                 <Line data={graphData} options={{ responsive: true, plugins: { legend: { position: "top" } } }} />
             </div>
         );

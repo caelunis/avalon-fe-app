@@ -84,7 +84,7 @@ function Supervised() {
                 <div className="mt-4">
                     <h3 className="text-xl font-semibold mb-2">Превью CSV (dummy.csv)</h3>
                     <div className="overflow-x-auto">
-                        <table className="w-full border-collapse border bg-white shadow-sm">
+                        <table className="w-full border-collapse border bg-white text-black shadow-sm">
                             <thead>
                             <tr>
                                 {Object.keys(data[0]).map((header, i) => (

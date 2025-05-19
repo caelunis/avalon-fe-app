@@ -21,7 +21,7 @@ export const predictNNModel = async (image) => {
     formData.append("image", image);
     try {
         const response = await axios.post(`${API_BASE_URL}/predict`, formData, {
-            responseType: "blob", // Получаем бинарные данные (изображение)
+            headers: { "Content-Type": "multipart/form-data"},
         });
         return response.data;
     } catch (error) {

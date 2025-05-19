@@ -26,14 +26,11 @@ function NNModel() {
         setLoading(true);
         try {
             const response = await predictNNModel(image);
-            // Предполагаем, что сервер возвращает изображение с bounding box и заголовок "Result: Smiling/Not Smiling"
-            // Для отображения изображения создаём URL
-            const imageUrl = URL.createObjectURL(response);
-            // Для упрощения предполагаем, что заголовок можно извлечь из имени файла или передать через API
-            // Здесь используем mock-данные для метки
+            const imageUrl = URL.createObjectURL(image);
+            const confidence = response.data?.confidence || "N/A";
             setPredictionData({
                 imageUrl,
-                result: "Result: Smiling", // Замените на реальный результат из API, если он доступен
+                result: `Confidence: ${confidence}`,
             });
             setError(null);
         } catch (err) {
@@ -41,6 +38,7 @@ function NNModel() {
         }
         setLoading(false);
     };
+
 
     return (
         <div className="max-w-md mx-auto mt-10">
