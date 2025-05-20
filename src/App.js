@@ -6,8 +6,6 @@ import NNModel from "./pages/NNModel";
 import Supervised from "./pages/Supervised";
 import Unsupervised from "./pages/Unsupervised";
 import NNModelResults from "./pages/NNModelResults";
-import SupervisedResults from "./pages/SupervisedResults";
-import UnsupervisedResults from "./pages/UnsupervisedResults";
 
 function App() {
   const [theme, setTheme] = useState("light");
@@ -27,8 +25,6 @@ function App() {
               <Route path="/supervised" element={<Supervised />} />
               <Route path="/unsupervised" element={<Unsupervised />} />
               <Route path="/nn-model-results" element={<NNModelResults />} />
-              <Route path="/supervised-results" element={<SupervisedResults />} />
-              <Route path="/unsupervised-results" element={<UnsupervisedResults />} />
             </Routes>
           </div>
         </div>
