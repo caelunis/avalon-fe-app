@@ -15,7 +15,7 @@ function Unsupervised() {
         const loadCSV = async () => {
             setLoading(true);
             try {
-                const csvData = await fetchCSV("dummy.csv");
+                const csvData = await fetchCSV("preprocessed_unsupervised.csv");
                 Papa.parse(csvData, {
                     complete: (result) => {
                         setData(result.data);
@@ -64,35 +64,35 @@ function Unsupervised() {
                     {loading && predictionType === "clustering" ? "Загрузка..." : "Clustering"}
                 </button>
             </div>
-            {data.length > 0 && (
-                <div className="mt-6">
-                    <h3 className="text-xl font-semibold mb-2">Превью CSV (dummy.csv)</h3>
-                    <div className="overflow-x-auto">
-                        <table className="w-full border-collapse border bg-white shadow-sm">
-                            <thead>
-                            <tr>
-                                {Object.keys(data[0]).map((header, i) => (
-                                    <th key={i} className="border p-2">
-                                        {header}
-                                    </th>
-                                ))}
-                            </tr>
-                            </thead>
-                            <tbody>
-                            {data.map((row, i) => (
-                                <tr key={i}>
-                                    {Object.values(row).map((cell, j) => (
-                                        <td key={j} className="border p-2">
-                                            {cell}
-                                        </td>
-                                    ))}
-                                </tr>
-                            ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            )}
+            {/*{data.length > 0 && (*/}
+            {/*    <div className="mt-6">*/}
+            {/*        <h3 className="text-xl font-semibold mb-2">Превью CSV</h3>*/}
+            {/*        <div className="overflow-x-auto">*/}
+            {/*            <table className="w-full border-collapse border bg-white shadow-sm">*/}
+            {/*                <thead>*/}
+            {/*                <tr>*/}
+            {/*                    {Object.keys(data[0]).map((header, i) => (*/}
+            {/*                        <th key={i} className="border p-2">*/}
+            {/*                            {header}*/}
+            {/*                        </th>*/}
+            {/*                    ))}*/}
+            {/*                </tr>*/}
+            {/*                </thead>*/}
+            {/*                <tbody>*/}
+            {/*                {data.map((row, i) => (*/}
+            {/*                    <tr key={i}>*/}
+            {/*                        {Object.values(row).map((cell, j) => (*/}
+            {/*                            <td key={j} className="border p-2">*/}
+            {/*                                {cell}*/}
+            {/*                            </td>*/}
+            {/*                        ))}*/}
+            {/*                    </tr>*/}
+            {/*                ))}*/}
+            {/*                </tbody>*/}
+            {/*            </table>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*)}*/}
             {predictionData && (
                 <div className="mt-6">
                     {predictionType === "decomposition" ? (

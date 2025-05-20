@@ -82,7 +82,7 @@ function Supervised() {
             {loading && !predictionType && <div className="mt-4 text-center">Загрузка CSV...</div>}
             {data.length > 0 && (
                 <div className="mt-4">
-                    <h3 className="text-xl font-semibold mb-2">Превью CSV (dummy.csv)</h3>
+                    <h3 className="text-xl font-semibold mb-2">Превью CSV</h3>
                     <div className="overflow-x-auto">
                         <table className="w-full border-collapse border bg-white text-black shadow-sm">
                             <thead>
