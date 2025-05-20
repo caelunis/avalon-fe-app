@@ -82,7 +82,7 @@ function Supervised() {
             {/* Превью первых 10 строк CSV */}
             {previewData.length > 0 && (
                 <div className="mt-6">
-                    <h3 className="text-xl font-semibold mb-2">Превью CSV (первые 10 строк)</h3>
+                    <h3 className="text-xl font-semibold mb-2">Превью CSV: Global Development Full Analysis (2000-2020) (первые 10 строк)</h3>
                     <div className="overflow-x-auto">
                         <table className="w-full table-auto border-collapse border bg-white shadow-sm">
                             <thead>

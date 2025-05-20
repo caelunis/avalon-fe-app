@@ -89,7 +89,7 @@ function Unsupervised() {
             {/* Превью первых 10 строк CSV */}
             {previewData.length > 0 && (
                 <div className="mt-6">
-                    <h3 className="text-xl font-semibold mb-2">Превью CSV (первые 10 строк)</h3>
+                    <h3 className="text-xl font-semibold mb-2">Превью CSV: UK Road Traffic Collision Dataset (первые 10 строк)</h3>
                     <div className="overflow-x-auto">
                         <table className="w-full table-auto border-collapse border bg-white shadow-sm">
                             <thead>
