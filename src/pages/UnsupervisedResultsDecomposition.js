@@ -53,7 +53,7 @@ function UnsupervisedResultsDecomposition({ data }) {
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                         <div className="bg-blue-100 dark:bg-blue-800 p-4 rounded-lg shadow-md">
-                            <p className="text-white">Accuracy: {result.Accuracy ?? "-"}</p>
+                            <p className="text-white">Accuracy: {result.accuracy ?? "-"}</p>
                         </div>
                         <div className="bg-blue-100 dark:bg-blue-800 p-4 rounded-lg shadow-md">
                             <p className="text-white">F1 Score: {result.f1_score ?? "-"}</p>

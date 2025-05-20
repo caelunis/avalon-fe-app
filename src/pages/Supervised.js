@@ -88,7 +88,7 @@ function Supervised() {
                             <thead>
                             <tr>
                                 {Object.keys(previewData[0]).map((col, idx) => (
-                                    <th key={idx} className="border p-2 bg-gray-100">{col}</th>
+                                    <th key={idx} className="border text-black p-2 bg-gray-100">{col}</th>
                                 ))}
                             </tr>
                             </thead>
@@ -96,7 +96,7 @@ function Supervised() {
                             {previewData.map((row, idx) => (
                                 <tr key={idx}>
                                     {Object.values(row).map((cell, j) => (
-                                        <td key={j} className="border p-2">{cell}</td>
+                                        <td key={j} className="border text-black p-2">{cell}</td>
                                     ))}
                                 </tr>
                             ))}
